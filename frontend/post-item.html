@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lost &amp; Found Campus Portal - Post an item</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="post">
+
+  <header class="navbar">
+    <a class="brand" href="dashboard.html">🔎 Lost &amp; Found</a>
+    <nav class="nav-links">
+      <a href="dashboard.html">Browse</a>
+      <a href="post-item.html" class="active">Post an item</a>
+    </nav>
+    <div class="nav-user">
+      <span id="userName" class="user-chip"></span>
+      <button type="button" id="logoutBtn" class="btn btn-ghost btn-sm">Logout</button>
+    </div>
+  </header>
+
+  <main class="container narrow">
+    <div class="page-head">
+      <div>
+        <h2>Post an item</h2>
+        <p class="muted">Tell the campus what you lost or found.</p>
+      </div>
+    </div>
+
+    <form id="postForm" class="card form" novalidate>
+      <div id="postError" class="alert alert-error hidden"></div>
+
+      <label>This item was</label>
+      <div class="pill-group">
+        <label class="pill">
+          <input type="radio" name="type" value="LOST" checked>
+          <span>😟 Lost</span>
+        </label>
+        <label class="pill">
+          <input type="radio" name="type" value="FOUND">
+          <span>🙌 Found</span>
+        </label>
+      </div>
+
+      <label for="title">Title</label>
+      <input type="text" id="title" maxlength="150" placeholder="e.g. Black boAt earbuds case" required>
+
+      <div class="row">
+        <div>
+          <label for="category">Category</label>
+          <select id="category">
+            <option value="Electronics">Electronics</option>
+            <option value="ID/Cards">ID/Cards</option>
+            <option value="Books">Books</option>
+            <option value="Accessories">Accessories</option>
+            <option value="Other" selected>Other</option>
+          </select>
+        </div>
+        <div>
+          <label for="itemDate">Date</label>
+          <input type="date" id="itemDate" required>
+        </div>
+      </div>
+
+      <label for="location">Location</label>
+      <input type="text" id="location" maxlength="150" placeholder="e.g. Central Library, 2nd floor" required>
+
+      <label for="description">Description</label>
+      <textarea id="description" rows="4" placeholder="Colour, brand, marks, anything that helps identify it (but keep the secret detail for the question below)" required></textarea>
+
+      <label for="verificationQuestion">Verification question</label>
+      <input type="text" id="verificationQuestion" maxlength="255" placeholder="e.g. What sticker is on the back?" required>
+      <p class="hint">Only the real owner (or finder) should know the answer. It is shown to people who want to claim this item.</p>
+
+      <label for="contactInfo">Contact info</label>
+      <input type="text" id="contactInfo" maxlength="150" placeholder="e.g. you@campus.edu | 98765 43210" required>
+      <p class="hint">Only shown to logged-in users who answer your question.</p>
+
+      <div class="form-actions">
+        <a href="dashboard.html" class="btn btn-ghost">Cancel</a>
+        <button type="submit" class="btn btn-primary" id="postBtn">Post item</button>
+      </div>
+    </form>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

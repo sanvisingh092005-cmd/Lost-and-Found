@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lost &amp; Found Campus Portal - Login</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="login" class="auth-body">
+
+  <main class="auth-wrap">
+    <div class="auth-brand">
+      <div class="logo">🔎</div>
+      <h1>Lost &amp; Found</h1>
+      <p>Campus Portal - find what you lost, return what you found.</p>
+    </div>
+
+    <div class="card auth-card">
+      <div class="tabs">
+        <button type="button" class="tab active" data-tab="login">Login</button>
+        <button type="button" class="tab" data-tab="signup">Sign up</button>
+      </div>
+
+      <!-- Login -->
+      <form id="loginForm" class="form" novalidate>
+        <div id="loginError" class="alert alert-error hidden"></div>
+
+        <label for="loginEmail">Email</label>
+        <input type="email" id="loginEmail" placeholder="you@campus.edu" required autocomplete="email">
+
+        <label for="loginPassword">Password</label>
+        <input type="password" id="loginPassword" placeholder="Your password" required autocomplete="current-password">
+
+        <button type="submit" class="btn btn-primary btn-block" id="loginBtn">Login</button>
+
+        <div class="demo-box">
+          <strong>Demo accounts</strong>
+          <div><code>admin@campus.edu</code> / <code>Admin@123</code></div>
+          <div><code>aarav@campus.edu</code> / <code>Student@123</code></div>
+          <div><code>priya@campus.edu</code> / <code>Student@123</code></div>
+        </div>
+      </form>
+
+      <!-- Sign up -->
+      <form id="signupForm" class="form hidden" novalidate>
+        <div id="signupError" class="alert alert-error hidden"></div>
+
+        <label for="signupName">Full name</label>
+        <input type="text" id="signupName" placeholder="Your name" required maxlength="100" autocomplete="name">
+
+        <label for="signupEmail">Email</label>
+        <input type="email" id="signupEmail" placeholder="you@campus.edu" required autocomplete="email">
+
+        <label for="signupPassword">Password</label>
+        <input type="password" id="signupPassword" placeholder="At least 6 characters" required minlength="6" autocomplete="new-password">
+
+        <label for="signupConfirm">Confirm password</label>
+        <input type="password" id="signupConfirm" placeholder="Repeat password" required autocomplete="new-password">
+
+        <button type="submit" class="btn btn-primary btn-block" id="signupBtn">Create account</button>
+      </form>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

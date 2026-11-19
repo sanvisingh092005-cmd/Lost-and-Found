@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lost &amp; Found Campus Portal - Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="dashboard">
+
+  <header class="navbar">
+    <a class="brand" href="dashboard.html">🔎 Lost &amp; Found</a>
+    <nav class="nav-links">
+      <a href="dashboard.html" class="active">Browse</a>
+      <a href="post-item.html">Post an item</a>
+    </nav>
+    <div class="nav-user">
+      <span id="userName" class="user-chip"></span>
+      <button type="button" id="logoutBtn" class="btn btn-ghost btn-sm">Logout</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="page-head">
+      <div>
+        <h2>Browse items</h2>
+        <p class="muted">Search the campus for lost and found belongings.</p>
+      </div>
+      <a href="post-item.html" class="btn btn-primary">+ Post an item</a>
+    </div>
+
+    <section class="toolbar card">
+      <input type="search" id="searchInput" placeholder="Search by title, description or location…">
+      <select id="typeFilter" aria-label="Filter by type">
+        <option value="">All types</option>
+        <option value="LOST">Lost</option>
+        <option value="FOUND">Found</option>
+      </select>
+      <select id="categoryFilter" aria-label="Filter by category">
+        <option value="">All categories</option>
+        <option value="Electronics">Electronics</option>
+        <option value="ID/Cards">ID/Cards</option>
+        <option value="Books">Books</option>
+        <option value="Accessories">Accessories</option>
+        <option value="Other">Other</option>
+      </select>
+      <button type="button" id="clearFilters" class="btn btn-ghost">Clear</button>
+    </section>
+
+    <p id="resultCount" class="muted result-count"></p>
+    <section id="itemsGrid" class="grid">
+      <p class="muted">Loading items…</p>
+    </section>
+  </main>
+
+  <!-- Claim modal -->
+  <div id="claimModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="claimTitle">
+    <div class="modal-box">
+      <button type="button" class="modal-close" id="claimClose" aria-label="Close">&times;</button>
+      <h3 id="claimTitle"></h3>
+
+      <div id="claimStep1">
+        <p class="muted">Answer the poster's verification question to get their contact details.</p>
+        <p class="question" id="claimQuestion"></p>
+        <form id="claimForm" class="form" novalidate>
+          <label for="claimAnswer">Your answer</label>
+          <input type="text" id="claimAnswer" maxlength="255" placeholder="Type your answer" required>
+          <button type="submit" class="btn btn-primary btn-block">Submit answer</button>
+        </form>
+      </div>
+
+      <div id="claimStep2" class="hidden">
+        <p>Contact the poster and share your answer:</p>
+        <div class="contact-box" id="claimContact"></div>
+        <a id="claimMailto" class="btn btn-primary btn-block hidden" href="#">✉️ Email the poster</a>
+        <p class="muted small">The poster will check your answer and mark the item as claimed.</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
